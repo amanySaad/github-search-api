@@ -1,0 +1,24 @@
+{
+	"name": "amanySaad/github-search-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amany Abolella",
+            "email": "eng.am.aboelella@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+	"require": {
+        "php": ">=7.2",
+        "doctrine/cache": "^1.10",
+		"guzzlehttp/guzzle": "^7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "AmanySaad\\GithubSearchApi\\": "src/"
+        }
+    }
+}
