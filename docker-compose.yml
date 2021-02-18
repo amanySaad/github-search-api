@@ -3,52 +3,6 @@ networks:
   amanynetwork:
 
 services:
-  amany_mysql:
-    image: mysql:5.7.22
-    container_name: amany_localserver
-    # command: mysqld --sql_mode=""
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "3306:3306"
-    environment:
-        MYSQL_DATABASE: main_db
-        MYSQL_USER: root
-        MYSQL_PASSWORD: root
-        MYSQL_ROOT_PASSWORD: root
-        SERVICE_TAGS: dev
-        SERVICE_NAME: mysql 
-    volumes: 
-      - ./data:/var/lib/mysql
-    networks:
-      - "amanynetwork"
-  amany_phpmyadmin:
-    image: phpmyadmin/phpmyadmin    
-    restart: unless-stopped
-    links:
-      - amany_mysql:mysql
-    environment:
-      MYSQL_USERNAME: 'root'
-      MYSQL_ROOT_PASSWORD: 'root'
-      PMA_HOST: amany_mysql
-      PMA_USER: root
-      PMA_PASSWORD: root
-      UPLOAD_LIMIT: 3000000000
-    ports:
-      - "85:80"
-    volumes:
-      - /docker/sessions
-    networks:
-      - "amanynetwork"
-  amany_mail:
-    image: mailhog/mailhog:v1.0.0
-    container_name: amany_mail_server
-    ports:
-      - "1025:1025"
-      - "8025:8025"
-    networks:
-      - "amanynetwork"
-
   amany_server:
     build: .
     container_name: "amany_server"
@@ -57,7 +11,5 @@ services:
     volumes:
       - "./application:/var/www/html"
     working_dir: "/var/www/html"
-    depends_on:
-      - "amany_mysql"
     networks:
       - "amanynetwork"
