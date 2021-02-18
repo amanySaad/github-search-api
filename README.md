@@ -13,11 +13,11 @@ You need php 7.2 or higher .
 ----
 
 ## Get started ##
-Install via composer: `composer require amany-saad/github-search-api`
+Install via composer: `composer require amanySaad/github-search-api`
 ```json
 {
     "require": {
-        "amany-saad/github-search-api": "v0.1"
+        "amanySaad/github-search-api": "v0.1"
     }
 }
 ```
