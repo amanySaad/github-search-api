@@ -34,6 +34,14 @@ $SearchGithub = SearchGithub::create();
 ### Search API ###
 You can use the search api by calling `$SearchGithub->getSearch()`
 ```php
+/**
+ * @param $keywords
+ * @param $per_page
+ * @param null $sort
+ * @param string $order
+ * @param string $date
+ * @return Repository[]
+ */
 // this is equals to https://api.github.com/search/repositories?q=language%3Aphp+&type=Repositories&ref=searchresults
 foreach (SearchGithub::create()->getSearch()->findRepositories('language:php') as $repo) {
     $repo->getName();
