@@ -1,2 +1,2 @@
-/vendor/
+/application/vendor/
 .phpunit.result.cache
